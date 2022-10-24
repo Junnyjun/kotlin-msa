@@ -1,9 +1,36 @@
 server:
   port: 0
 
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+    shutdown:
+      enabled: true
+
 spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    database: h2
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
   application:
-    name:  kotlin-client
+    name: kotlin-client
 
 eureka:
   instance:
@@ -13,3 +40,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
+
+greeting:
+  message: WELCOME MY ECOMMERCE

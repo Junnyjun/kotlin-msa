@@ -1,4 +1,4 @@
-package git.io.userservice
+package git.io
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
